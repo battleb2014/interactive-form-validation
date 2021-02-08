@@ -21,28 +21,26 @@ jobSelect.addEventListener('click', (e) => {
 // 1. Hide color options until design is chosen
 const colorSelect = document.querySelector('#color');
 const colorLabel = document.querySelector('.color-label');
-
+const jsPuns = document.querySelector('#js-puns');
+const heartJs = document.querySelector('#heart-js');
 
 const shirtDesign = document.querySelector('#design');
 const shirtColor = document.querySelector('#shirt-colors');
 colorSelect.disabled = true;
 
-
 //Design <select>
 //2. Show color options on change
 shirtDesign.addEventListener('change', (e) => {
     colorSelect.disabled = false;
-    for (let i = 0; i < colorSelect.length; i++) {
+    for (let i = 0; i < colorSelect.children.length - 1; i++) {
         const theme = colorSelect.children[i].getAttribute('data-theme');
-        console.log(theme);
         if (theme === 'js puns') {
-            colorSelect.children[i].hidden = false;
-            colorSelect.children[i].selected = true;
+            heartJs.hidden = true;
         } else if (theme === 'heart js') {
-            colorSelect.children[i].hidden = true;
-            colorSelect.children[i].selected = false;
+            jsPuns.hidden = true;
         }
     }
+    console.log(theme);
 });
 
 //3.If('Theme-JS Puns') Color menu = "Cornflower Blue," "Dark Slate Grey," and "Gold."
